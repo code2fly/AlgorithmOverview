@@ -87,3 +87,17 @@
 
 
 ![alt](/resources/images/05.PNG)
+
+
+
+## 3. Find solutions to problems in algo - ***Quick Union improvements*** - 
+
+  1. Weighting - 
+      * Weighted quick union -  balance tree by linking root of smaller tree to root of larger tree.
+      * Depth of any node x can be atmost lg N i.e. log N to the base 2. explain why???
+      * intialization is O(N) , union is O(lg N) , find/connected query is O(lg N)
+      * can we optimize it further ?? yes .
+
+  2. Path compresssion
+      * basically here just after computing the root of a node 'p', set the root of each examined node to point to that root.(this way the tree gets flattened.)
+      * 
