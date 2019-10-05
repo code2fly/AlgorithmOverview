@@ -50,6 +50,40 @@
 ## 2. Find algo to solve it - 
 
   1. **Quick find -(eager approach)** 
+  - Data structure 
+      - integer array id[] of length N
+      - Interpretation: p and q are connected if an only if they have same id.
 
-  2. **Quick union -** 
-  
+
+![alt](/resources/images/02.PNG)
+
+
+  - ***find implementation*** - check if p and q have same id.
+  - ***union implementation*** - to merge components containing p and q , change all entries containing value id[p] with value id[q]
+    
+ - **Problems with Quick find** - 
+    * quick find is too slow for huge problems, initialize is O(N), union is O(N) , find is O(1)
+    * union is too expensive - it takes N^2(quardratic) array access to process sequence of N union commands on N objects.
+      * Quardratic algorithms do not scale basically if we have 1 billion objects and it takes 1 second for computer to access those 10^9 objects , in order to perform
+      union operations on all those 10^9 objects it will take around 10^18 seconds which is around 35 years.
+
+![alt](/resources/images/03.PNG)
+
+  2. **Quick union -(lazy approach to algo design as we try to avoid doing work until we have to)** 
+  - Data structure 
+      - integer array id[] of length N
+      - Interpretation: id[i] is parent of i.
+      - Root of i is id[id[id[.....id[i]]]] - find it until it stops changing.
+
+
+![alt](/resources/images/04.PNG)
+
+
+  - ***find implementation*** - check if p and q have same root.
+  - ***union implementation*** - to merge components change the root of p to point to root of q i.e. set id of p's root to id of q's root.
+    
+ - **Problems with Quick Union** - 
+    * quick union is also too slow for huge problems, initialize is O(N), union is O(N) - need to find roots , find is O(N)
+
+
+![alt](/resources/images/05.PNG)
